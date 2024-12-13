@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Box, TextField, IconButton } from '@mui/material';
 import InfoIcon from '@mui/icons-material/Info';
 
-const AddressInput = ({ isEditable = true, label = 'Address', onAddressSelect }) => {
-  const [address, setAddress] = useState('');
-
+const AddressInput = ({ isEditable = true, label = 'Address', address: addressProp, onAddressSelect }) => {
   const handleGetInfo = async () => {
     try {
       // Call the webhook with the address
@@ -13,7 +11,7 @@ const AddressInput = ({ isEditable = true, label = 'Address', onAddressSelect })
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ address }),
+        body: JSON.stringify({ address: addressProp }),
       });
 
       // Handle the webhook response
@@ -25,7 +23,7 @@ const AddressInput = ({ isEditable = true, label = 'Address', onAddressSelect })
   };
 
   const handleAddressSelect = () => {
-    onAddressSelect(address);
+    onAddressSelect(addressProp);
   };
 
   return (
@@ -33,9 +31,11 @@ const AddressInput = ({ isEditable = true, label = 'Address', onAddressSelect })
       <TextField
         label={label}
         variant="outlined"
-        value={address}
+        value={addressProp}
         InputProps={{
           readOnly: !isEditable,
+          style: { width: '400px' }, // Increase the width of the TextField
+
         }}
       />
       <IconButton onClick={handleAddressSelect} color="primary" aria-label="Select Address">

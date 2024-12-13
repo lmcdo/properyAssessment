@@ -17,6 +17,7 @@ const Propertyhomepage = () => {
   };
 
   const handleAddressSelect = ({ address, lat, lng }) => {
+    console.log('Selected address:', address);
     setSelectedAddress(address);
     setMapCenter({ lat, lng });
     setMapZoom(18);
