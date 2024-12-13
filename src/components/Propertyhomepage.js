@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { APIProvider, Map, AdvancedMarker, Pin } from '@vis.gl/react-google-maps';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import SearchBar from './Searchbar';
 
 const locations = [
@@ -9,8 +8,17 @@ const locations = [
 ];
 
 const Propertyhomepage = () => {
-    const API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+  const API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
+  const mapStyles = {
+    height: '50vh',
+    width: '50vw',
+  };
+
+  const defaultCenter = {
+    lat: -33.860664,
+    lng: 151.208138,
+  };
 
   return (
     <div>
@@ -18,20 +26,17 @@ const Propertyhomepage = () => {
         <h1>Sydney Landmarks</h1>
       </header>
       <SearchBar />
-      <div style={{ height: '50vh', width: '50vw'  }}>
-        <APIProvider apiKey={API_KEY}>
-          <Map
-            defaultCenter={{ lat: -33.860664, lng: 151.208138 }}
-            defaultZoom={13}
-          >
-            {locations.map((location, index) => (
-              <AdvancedMarker key={index} position={location}>
-                <Pin>{location.name}</Pin>
-              </AdvancedMarker>
-            ))}
-          </Map>
-        </APIProvider>
-      </div>
+      <LoadScript googleMapsApiKey={API_KEY}>
+        <GoogleMap
+          mapContainerStyle={mapStyles}
+          zoom={13}
+          center={defaultCenter}
+        >
+          {locations.map((location, index) => (
+            <Marker key={index} position={location} />
+          ))}
+        </GoogleMap>
+      </LoadScript>
     </div>
   );
 };

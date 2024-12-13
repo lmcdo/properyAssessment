@@ -1,19 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import { LoadGoogleMapScript } from './utils/LoadGoogleMapScript';
+import useLoadGoogleMapsScript from './useLoadGoogleMapsScript';
 
-const API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
-LoadGoogleMapScript(API_KEY)
-  .then(() => {
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    );
-  })
-  .catch((error) => {
-    console.error('Error loading Google Maps script:', error);
-  });
+const LoadGoogleMapsScript = () => {
+  const isScriptLoaded = useLoadGoogleMapsScript();
+
+  if (!isScriptLoaded) {
+    return <div>Loading...</div>;
+  }
+
+  return <App />;
+};
+
+root.render(<LoadGoogleMapsScript />);
