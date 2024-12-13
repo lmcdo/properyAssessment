@@ -12,7 +12,9 @@ import {
   DialogActions,
   useTheme,
   useMediaQuery,
+  IconButton,
 } from '@mui/material';
+import InfoIcon from '@mui/icons-material/Info';
 import { signInWithGoogle, signInWithEmailAndPassword, signUpWithEmailAndPassword, auth } from './firebase';
 
 const Header = () => {

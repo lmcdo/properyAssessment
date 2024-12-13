@@ -1,42 +1,44 @@
-import React from 'react';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import React, { useState } from 'react';
+import { GoogleMap, Marker } from '@react-google-maps/api';
 import SearchBar from './Searchbar';
+import AddressInput from './AddressInput';
 
-const locations = [
-  { lat: -33.865143, lng: 151.209900, name: 'Sydney Opera House' },
-  { lat: -33.856667, lng: 151.215530, name: 'Circular Quay' },
-];
+const libraries = ['places'];
 
 const Propertyhomepage = () => {
   const API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+  const [mapCenter, setMapCenter] = useState({ lat: -33.860664, lng: 151.208138 });
+  const [mapZoom, setMapZoom] = useState(13);
+  const [selectedAddress, setSelectedAddress] = useState('');
 
   const mapStyles = {
     height: '50vh',
-    width: '50vw',
+    width: '100%',
   };
 
-  const defaultCenter = {
-    lat: -33.860664,
-    lng: 151.208138,
+  const handleAddressSelect = ({ address, lat, lng }) => {
+    setSelectedAddress(address);
+    setMapCenter({ lat, lng });
+    setMapZoom(18);
   };
 
   return (
     <div>
-      <header style={{ height: '60px', backgroundColor: '#f0f0f0', padding: '10px' }}>
+      <header style={{ height: '60px', backgroundColor: '#f0f0f0', padding: '10px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <h1>Zoning Explorer</h1>
+        <div>
+          <AddressInput isEditable={false} label="Map Address" address={selectedAddress} />
+          <button>Get Property</button>
+        </div>
       </header>
-      <SearchBar />
-      <LoadScript googleMapsApiKey={API_KEY}>
-        <GoogleMap
-          mapContainerStyle={mapStyles}
-          zoom={13}
-          center={defaultCenter}
-        >
-          {locations.map((location, index) => (
-            <Marker key={index} position={location} />
-          ))}
-        </GoogleMap>
-      </LoadScript>
+      <GoogleMap
+        mapContainerStyle={mapStyles}
+        zoom={mapZoom}
+        center={mapCenter}
+      >
+        <Marker position={mapCenter} />
+      </GoogleMap>
+      <SearchBar onAddressSelect={handleAddressSelect} />
     </div>
   );
 };

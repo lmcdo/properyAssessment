@@ -1,11 +1,9 @@
 import React, { useState, useRef, useCallback } from 'react';
-import { GoogleMap, Marker, InfoWindow } from '@react-google-maps/api';
+import { GoogleMap, Marker, InfoWindow, useLoadScript } from '@react-google-maps/api';
 import usePlacesAutocomplete, { getGeocode, getLatLng } from 'use-places-autocomplete';
 import useGoogleMapsAutocomplete from '../hooks/useGoogleMapsAutocomplete';
-import './Searchbar.css';
 
-const SearchBar = () => {
-  const [address, setAddress] = useState('');
+const SearchBar = ({ onAddressSelect }) => {
   const [coordinates, setCoordinates] = useState({ lat: 51.505, lng: -0.09 });
   const [zoom, setZoom] = useState(13);
   const [isInfoWindowOpen, setIsInfoWindowOpen] = useState(false);
@@ -17,6 +15,11 @@ const SearchBar = () => {
     },
   });
 
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    libraries: ['places'],
+  });
+
   const handleSelect = useCallback(
     async (address) => {
       setValue(address, false);
@@ -24,12 +27,12 @@ const SearchBar = () => {
 
       const results = await getGeocode({ address });
       const { lat, lng } = await getLatLng(results[0]);
-      setAddress(results[0].formatted_address);
       setCoordinates({ lat, lng });
       setZoom(18);
       setIsInfoWindowOpen(true);
+      onAddressSelect({ address: results[0].formatted_address, lat, lng });
     },
-    [setValue, clearSuggestions]
+    [setValue, clearSuggestions, onAddressSelect]
   );
 
   const handleMarkerClick = () => {
@@ -41,31 +44,35 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="map-container">
-      <GoogleMap
-        center={coordinates}
-        zoom={zoom}
-        mapContainerStyle={{ height: '400px' }}
-        onLoad={(map) => (mapRef.current = map)}
-      >
-        <Marker position={coordinates} onClick={handleMarkerClick}>
-          {isInfoWindowOpen && (
-            <InfoWindow onCloseClick={() => setIsInfoWindowOpen(false)}>
-              <div>{address}</div>
-            </InfoWindow>
-          )}
-        </Marker>
-      </GoogleMap>
-      <div>
+    <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+      <div style={{ flex: 1, position: 'relative' }}>
+        <GoogleMap
+          center={coordinates}
+          zoom={zoom}
+          mapContainerStyle={{ width: '100%', height: '100%' }}
+          onLoad={(map) => (mapRef.current = map)}
+        >
+          <Marker position={coordinates} onClick={handleMarkerClick}>
+            {isInfoWindowOpen && <InfoWindow onCloseClick={() => setIsInfoWindowOpen(false)}><div>{value}</div></InfoWindow>}
+          </Marker>
+        </GoogleMap>
+      </div>
+      <div style={{ padding: '10px' }}>
         <input
           value={value}
           onChange={handleInputChange}
           placeholder="Enter an address"
+          ref={autocompleteRef}
+          style={{ width: '100%' }}
         />
         {ready && status === 'OK' && (
-          <ul>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
             {data.map(({ place_id, description }) => (
-              <li key={place_id} onClick={() => handleSelect(description)}>
+              <li
+                key={place_id}
+                onClick={() => handleSelect(description)}
+                style={{ cursor: 'pointer' }}
+              >
                 {description}
               </li>
             ))}
