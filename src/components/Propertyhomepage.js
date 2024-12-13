@@ -23,7 +23,7 @@ const Propertyhomepage = () => {
   return (
     <div>
       <header style={{ height: '60px', backgroundColor: '#f0f0f0', padding: '10px' }}>
-        <h1>Sydney Landmarks</h1>
+        <h1>Zoning Explorer</h1>
       </header>
       <SearchBar />
       <LoadScript googleMapsApiKey={API_KEY}>
