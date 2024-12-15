@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import useLoadGoogleMapsScript from './useLoadGoogleMapsScript';
+import useGoogleMapsAutocomplete from './hooks/useGoogleMapsAutocomplete';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const LoadGoogleMapsScript = () => {
-  const isScriptLoaded = useLoadGoogleMapsScript();
+  const isScriptLoaded = useGoogleMapsAutocomplete();
 
   if (!isScriptLoaded) {
     return <div>Loading...</div>;

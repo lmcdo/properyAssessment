@@ -1,6 +1,8 @@
 // src/App.js
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Propertyhomepage from './components/Propertyhomepage';
+import PropertyDetails from './components/PropertyDetails';
 import { LoadGoogleMapScript } from './utils/LoadGoogleMapScript';
 
 const App = () => {
@@ -19,7 +21,16 @@ const App = () => {
     loadScript();
   }, []);
 
-  return isScriptLoaded ? <Propertyhomepage /> : <div>Loading...</div>;
+  return isScriptLoaded ? (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Propertyhomepage />} />
+        <Route path="/property-details" element={<PropertyDetails />} />
+      </Routes>
+    </Router>
+  ) : (
+    <div>Loading...</div>
+  );
 };
 
 export default App;

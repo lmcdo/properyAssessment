@@ -1,25 +1,19 @@
-   import { useState, useEffect, useRef } from 'react';
-   import { googleMapsScript } from '../utils/LoadGoogleMapScript';
+import { useRef, useEffect } from 'react';
 
-   const useGoogleMapsAutocomplete = () => {
-     const autocompleteRef = useRef(null);
-     const [autocomplete, setAutocomplete] = useState(null);
+const useGoogleMapsAutocomplete = () => {
+  const autocompleteRef = useRef(null);
+  let autocomplete = null;
 
-     useEffect(() => {
-       if (!googleMapsScript) {
-         console.error('Google Maps script is not loaded');
-         return;
-       }
+  useEffect(() => {
+    if (!autocompleteRef.current) return;
 
-       const initAutocomplete = () => {
-         const autocompleteSvc = new googleMapsScript.places.Autocomplete(autocompleteRef.current);
-         setAutocomplete(autocompleteSvc);
-       };
+    autocomplete = new window.google.maps.places.Autocomplete(
+      autocompleteRef.current,
+      { types: ['address'], componentRestrictions: { country: 'au' } }
+    );
+  }, []);
 
-       initAutocomplete();
-     }, []);
+  return { autocompleteRef, autocomplete };
+};
 
-     return { autocompleteRef, autocomplete };
-   };
-
-   export default useGoogleMapsAutocomplete;
+export default useGoogleMapsAutocomplete;

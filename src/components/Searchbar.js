@@ -11,14 +11,10 @@ const SearchBar = ({ onAddressSelect }) => {
   const { autocompleteRef, autocomplete } = useGoogleMapsAutocomplete();
   const { ready, value, setValue, suggestions: { status, data }, clearSuggestions } = usePlacesAutocomplete({
     initializeOptions: {
-      componentRestrictions: { country: 'us' },
+      componentRestrictions: { country: 'au' },
     },
   });
 
-  const { isLoaded } = useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
-    libraries: ['places'],
-  });
 
   const handleSelect = useCallback(
     async (address) => {
