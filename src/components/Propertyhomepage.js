@@ -28,11 +28,15 @@ const Propertyhomepage = () => {
 
   const handleGetProperty = async () => {
     if (selectedAddress) {
+      console.log('Getting property for address:', selectedAddress);
+      console.log('Current map center:', mapCenter);
+      
       setIsLoading(true);
       setPropertyData(null);
 
       try {
         const data = await getPropertyDetails(selectedAddress);
+        console.log('Property details received:', data);
         setPropertyData(data);
       } catch (error) {
         console.error('Error fetching property details:', error);
@@ -74,7 +78,13 @@ const Propertyhomepage = () => {
         {isLoading ? (
           <LoadingIndicator />
         ) : propertyData ? (
-          <PropertyResults data={propertyData} />
+          <PropertyResults 
+            data={propertyData} 
+            coordinates={{ 
+              lat: mapCenter.lat, 
+              lng: mapCenter.lng 
+            }} 
+          />
         ) : null}
 
         <SearchBar onAddressSelect={handleAddressSelect} />
