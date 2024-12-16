@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Propertyhomepage from './components/Propertyhomepage';
 import PropertyDetails from './components/PropertyDetails';
 import { LoadGoogleMapScript } from './utils/LoadGoogleMapScript';
+import SharedProperty from './components/SharedProperty';
+
 
 const App = () => {
   const [isScriptLoaded, setIsScriptLoaded] = useState(false);
@@ -26,6 +28,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Propertyhomepage />} />
         <Route path="/property-details" element={<PropertyDetails />} />
+        <Route path="/shared-property" element={<SharedProperty />} />
       </Routes>
     </Router>
   ) : (
