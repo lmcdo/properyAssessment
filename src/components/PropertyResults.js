@@ -3,6 +3,9 @@ import { Box, Typography, Grid, Paper, Button, Link, Card, CardHeader, CardConte
 import axios from 'axios';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
+import SummaryGrid from './SummaryGrid';
+import CollapsibleSection from './CollapsibleSection';
+import ResultTable from './ResultTable';
 
 const lgaEpiUrls = {
   'SYDNEY': 'https://legislation.nsw.gov.au/view/html/inforce/current/epi-2012-0628',
@@ -19,19 +22,6 @@ const lgaEpiUrls = {
   'FAIRFIELD': 'https://legislation.nsw.gov.au/view/html/inforce/current/epi-2013-021'
 };
 
-const getEpiUrl = (data) => {
-  const zoning = data.find(item => item.layerName === "Land Zoning Map")?.results[0];
-  const lgaName = zoning ? zoning["LGA Name"].toUpperCase() : null;
-
-  const epiUrl = lgaName ? lgaEpiUrls[lgaName] : null;
-
-  if (epiUrl) {
-    return epiUrl;
-  } else {
-    console.log("Unable to find EPI URL for the given LGA");
-    return "https://legislation.nsw.gov.au/";
-  }
-};
 
 const PropertyResults = ({ data, coordinates, address }) => {
   console.log('Full PropertyResults data:', data);
@@ -287,32 +277,19 @@ const PropertyResults = ({ data, coordinates, address }) => {
         </Button>
       </Box>
 
+      {/* Street View and Satellite Images */}
       {streetViewImage && <img src={streetViewImage} alt="Street View" />}
       {satelliteImage && <img src={satelliteImage} alt="Satellite View" />}
 
-      {/* Zoning data */}
+      {/* Summary Grid */}
+      <SummaryGrid data={data} />
+
+      {/* Collapsible Sections */}
       {data && data.length > 0 && (
         <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
           {data.map((item) => (
             <Box key={item.layerName} sx={{ width: '100%', p: 1 }}>
-              <Card>
-                <CardHeader
-                  title={item.layerName.replace(" Map", "")}
-                  subheader={
-                    <>
-                      <Typography variant="body2" color="textSecondary">
-                        Commenced Date: {item.results[0]["Commenced Date"]}
-                      </Typography>
-                      <Typography variant="body2" color="textSecondary">
-                        Current Date: {currentDate.toLocaleDateString()}
-                      </Typography>
-                    </>
-                  }
-                />
-                <CardContent>
-                  {renderResultCards(item.results, item.layerName)}
-                </CardContent>
-              </Card>
+              <CollapsibleSection layer={item} />
             </Box>
           ))}
         </Box>
