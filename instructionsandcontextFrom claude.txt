@@ -1,0 +1,1 @@
+When integrating the new components into the existing `PropertyResults` component, there are a few potential problems or difficulties that may arise:
