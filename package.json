@@ -12,6 +12,7 @@
     "@react-google-maps/api": "^2.20.3",
     "@react-pdf/renderer": "^4.1.5",
     "@vis.gl/react-google-maps": "^1.0.0",
+    "axios": "^1.7.9",
     "buffer": "^6.0.3",
     "copy-to-clipboard": "^3.3.3",
     "firebase": "^11.1.0",

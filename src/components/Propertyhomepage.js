@@ -83,7 +83,8 @@ const Propertyhomepage = () => {
             coordinates={{ 
               lat: mapCenter.lat, 
               lng: mapCenter.lng 
-            }} 
+            }}
+            address={selectedAddress}
           />
         ) : null}
 
