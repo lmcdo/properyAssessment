@@ -1,0 +1,131 @@
+
+{
+  "RU1 Primary Production": {
+    "description": "To encourage sustainable primary industry production by maintaining and enhancing the natural resource base. To encourage diversity in primary industry enterprises and systems appropriate for the area. To minimise the fragmentation and alienation of resource lands. To minimise conflict between land uses within this zone and land uses within adjoining zones.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_RU1"
+  },
+  "RU2 Rural Landscape": {
+    "description": "To encourage sustainable primary industry production by maintaining and enhancing the natural resource base. To maintain the rural landscape character of the land. To provide for a range of compatible land uses, including extensive agriculture.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_RU2"
+  },
+  "RU3 Forestry": {
+    "description": "To enable development for forestry purposes. To enable other development that is compatible with forestry land uses.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_RU3"
+  },
+  "RU4 Primary Production Small Lots": {
+    "description": "To enable sustainable primary industry and other compatible land uses. To encourage and promote diversity and employment opportunities in relation to primary industry enterprises, particularly those that require smaller lots or that are more intensive in nature. To minimise conflict between land uses within this zone and land uses within adjoining zones.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_RU4"
+  },
+  "RU5 Village": {
+    "description": "To provide for a range of land uses, services and facilities that are associated with a rural village.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_RU5"
+  },
+  "RU6 Transition": {
+    "description": "To protect and maintain land that provides a transition between rural and other land uses of varying intensities or environmental sensitivities. To minimise conflict between land uses within this zone and land uses within adjoining zones.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_RU6"
+  },
+  "R1 General Residential": {
+    "description": "To provide for the housing needs of the community. To provide for a variety of housing types and densities. To enable other land uses that provide facilities or services to meet the day to day needs of residents.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_R1"
+  },
+  "R2 Low Density Residential": {
+    "description": "To provide for the housing needs of the community within a low density residential environment. To enable other land uses that provide facilities or services to meet the day to day needs of residents.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_R2"
+  },
+  "R3 Medium Density Residential": {
+    "description": "To provide for the housing needs of the community within a medium density residential environment. To provide a variety of housing types within a medium density residential environment. To enable other land uses that provide facilities or services to meet the day to day needs of residents.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_R3"
+  },
+  "R4 High Density Residential": {
+    "description": "To provide for the housing needs of the community within a high density residential environment. To provide a variety of housing types within a high density residential environment. To enable other land uses that provide facilities or services to meet the day to day needs of residents.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_R4"
+  },
+  "R5 Large Lot Residential": {
+    "description": "To provide residential housing in a rural setting while preserving, and minimising impacts on, environmentally sensitive locations and scenic quality. To ensure that large residential lots do not hinder the proper and orderly development of urban areas in the future. To ensure that development in the area does not unreasonably increase the demand for public services or public facilities. To minimise conflict between land uses within this zone and land uses within adjoining zones.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_R5"
+  },
+  "E1 Local Centre": {
+    "description": "To provide a range of retail, business and community uses that serve the needs of people who live in, work in or visit the area. To encourage investment in local commercial development that generates employment opportunities and economic growth. To enable residential development that contributes to a vibrant and active local centre and is consistent with the Council’s strategic planning for residential development in the area. To encourage business, retail, community and other non-residential land uses on the ground floor of buildings.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_E1"
+  },
+  "E2 Commercial Centre": {
+    "description": "To strengthen the role of the commercial centre as the centre of business, retail, community and cultural activity in the local government area. To encourage employment opportunities. To maximise public transport patronage and encourage walking and cycling. To provide a high level of pedestrian amenity. To provide a diverse range of retail, entertainment and commercial services that cater for the needs of the local community and visitors. To encourage appropriate residential development, and a mix of uses that contributes to a vibrant and active centre.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_E2"
+  },
+  "E3 Productivity Support": {
+    "description": "To provide a range of facilities and services, light industries, warehouses and offices that support businesses and industries located in the local government area. To encourage employment opportunities. To minimise any adverse effect of development on land uses in other zones.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_E3"
+  },
+  "E4 General Industrial": {
+    "description": "To provide a wide range of industrial, warehouse, logistics and related land uses that support employment growth. To encourage employment opportunities. To minimise any adverse effect of development on other land uses.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_E4"
+  },
+  "E5 Heavy Industrial": {
+    "description": "To provide areas for industries that, because of their environmental impacts or the nature of their operations, need to be separated from other land uses. To encourage employment opportunities in industries that require large sites and may operate outside standard business hours. To minimise any adverse effect of development on land uses in other zones.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_E5"
+  },
+  "MU1 Mixed Use": {
+    "description": "To encourage a diversity of business, retail, office and light industrial land uses that generate employment opportunities. To facilitate the efficient use of land and resources in appropriate locations. To provide a mix of uses that contributes to a vibrant and active locality.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_MU1"
+  },
+  "SP1 Special Activities": {
+    "description": "To provide for a range of special land uses (including those listed in Schedule 1 to this standard instrument) or to provide for a land use not provided for in other zones, but only if—\n(a)  the development is in the public interest, and\n(b)  the development does not have any significant adverse environmental, social or economic impacts, and\n(c)  the objectives for development in the zone are consistent with the objectives of, and the zone does not compromise the implementation of, any strategic plan applying to the land.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_SP1"
+  },
+  "SP2 Infrastructure": {
+    "description": "To provide for infrastructure and related uses. To minimise any adverse effect of development on land uses in other zones.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_SP2"
+  },
+  "SP3 Tourist": {
+    "description": "To provide for a variety of tourist-oriented development and related uses.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_SP3"
+  },
+  "SP4 Enterprise": {
+    "description": "To provide for development and land uses that support enterprise and productivity.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_SP4"
+  },
+  "SP5 Metropolitan Centre": {
+    "description": "To recognise and provide for the pre-eminent role of business, office, retail, entertainment and tourist premises in Australia’s participation in the global economy. To provide opportunities for an intensity of land uses commensurate with Sydney’s global status. To permit a diversity of compatible land uses that are characteristic of Sydney’s global status and that serve the workforce, visitors and wider community.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_SP5"
+  },
+  "RE1 Public Recreation": {
+    "description": "To enable land to be used for public open space or recreational purposes. To provide a range of recreational settings and activities and compatible land uses. To protect and enhance the natural environment for recreational purposes.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_RE1"
+  },
+  "RE2 Private Recreation": {
+    "description": "To enable land to be used for private open space or recreational purposes. To provide a range of recreational settings and activities and compatible land uses. To protect and enhance the natural environment for recreational purposes.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_RE2"
+  },
+  "C1 National Parks and Nature Reserves": {
+    "description": "To enable the management and appropriate use of land that is reserved under the National Parks and Wildlife Act 1974 or that is acquired under Part 11 of that Act. To enable uses authorised under the National Parks and Wildlife Act 1974. To identify land that is to be reserved under the National Parks and Wildlife Act 1974 and to protect the environmental significance of that land.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_C1"
+  },
+  "C2 Environmental Conservation": {
+    "description": "To protect, manage and restore areas of high ecological, scientific, cultural or aesthetic values. To prevent development that could destroy, damage or otherwise have an adverse effect on those values.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_C2"
+  },
+  "C3 Environmental Management": {
+    "description": "To protect, manage and restore areas with special ecological, scientific, cultural or aesthetic values. To provide for a limited range of development that does not have an adverse effect on those values.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_C3"
+  },
+  "C4 Environmental Living": {
+    "description": "To provide for low-impact residential development in areas with special ecological, scientific or aesthetic values. To ensure that residential development does not have an adverse effect on those values.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_C4"
+  },
+  "W1 Natural Waterways": {
+    "description": "To protect the ecological and scenic values of natural waterways. To prevent development that would have an adverse effect on the natural values of waterways in this zone. To provide for sustainable fishing industries and recreational fishing.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_W1"
+  },
+  "W2 Recreational Waterways": {
+    "description": "To protect the ecological, scenic and recreation values of recreational waterways. To allow for water-based recreation and related uses. To provide for sustainable fishing industries and recreational fishing.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_W2"
+  },
+  "W3 Working Waterways": {
+    "description": "To enable the efficient movement and operation of commercial shipping, water-based transport and maritime industries. To promote the equitable use of waterways, including appropriate recreational uses. To minimise impacts on ecological values arising from the active use of waterways. To provide for sustainable fishing industries.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_W3"
+  },
+  "W4 Working Waterfront": {
+    "description": "To retain and encourage industrial and maritime activities on foreshores. To identify sites for maritime purposes and for activities requiring direct foreshore access. To ensure that development does not have an adverse impact on the environment and visual qualities of the foreshore. To encourage employment opportunities. To minimise any adverse effect of development on land uses in other zones.",
+    "url": "https://legislation.nsw.gov.au/view/whole/html/inforce/current/epi-2006-155a#pt-cg1.Zone_W4"
+  }
+}
