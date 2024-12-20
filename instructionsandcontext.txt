@@ -477,3 +477,5 @@ Reusability: ResultTable and HeaderCard can be reused for other layers.
 Mobile-First: Material-UI handles responsive design out of the box.
 Scalability: Adding more layers requires no change to existing components.
 This approach keeps the code clean, modular, and aligns with the usability recommendations.
+
+

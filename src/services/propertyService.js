@@ -24,6 +24,7 @@ export const getPropertyDetails = async (address) => {
             }
             
             const searchData = await searchResponse.json();
+            console.log('Search Data:', searchData);
             
             if (!searchData || searchData.length === 0) {
                 throw new Error('No matching property found');
@@ -47,6 +48,7 @@ export const getPropertyDetails = async (address) => {
             }
 
             const zoningData = await zoningResponse.json();
+            console.log('Zoning Data:', zoningData);
             
             // Validate data completeness
             if (!zoningData || zoningData.length === 0) {

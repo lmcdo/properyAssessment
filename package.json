@@ -16,6 +16,7 @@
     "buffer": "^6.0.3",
     "copy-to-clipboard": "^3.3.3",
     "firebase": "^11.1.0",
+    "html-react-parser": "^5.2.1",
     "jspdf": "^2.5.2",
     "jspdf-autotable": "^3.8.4",
     "lodash": "^4.17.21",

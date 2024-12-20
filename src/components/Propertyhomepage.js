@@ -4,7 +4,7 @@ import { Box, Button } from '@mui/material';
 import SearchBar from './Searchbar';
 import AddressInput from './AddressInput';
 import LoadingIndicator from './LoadingIndicator';
-import PropertyResults  from './PropertyResults';
+import PropertyResults from './PropertyResults';
 import { getPropertyDetails } from '../services/propertyService';
 import Header from './Header';
 
@@ -75,6 +75,8 @@ const Propertyhomepage = () => {
           <Marker position={mapCenter} />
         </GoogleMap>
 
+        <SearchBar onAddressSelect={handleAddressSelect} />
+
         {isLoading ? (
           <LoadingIndicator />
         ) : propertyData ? (
@@ -87,8 +89,6 @@ const Propertyhomepage = () => {
             address={selectedAddress}
           />
         ) : null}
-
-        <SearchBar onAddressSelect={handleAddressSelect} />
       </Box>
     </Box>
   );

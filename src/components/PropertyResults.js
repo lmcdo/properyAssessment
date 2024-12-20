@@ -6,6 +6,7 @@ import 'jspdf-autotable';
 import SummaryGrid from './SummaryGrid';
 import CollapsibleSection from './CollapsibleSection';
 import ResultTable from './ResultTable';
+import parse from 'html-react-parser';
 
 const lgaEpiUrls = {
   'SYDNEY': 'https://legislation.nsw.gov.au/view/html/inforce/current/epi-2012-0628',
@@ -33,6 +34,7 @@ const PropertyResults = ({ data, coordinates, address }) => {
   const [openSavePDFDialog, setOpenSavePDFDialog] = useState(false);
   const [pdfData, setPdfData] = useState(null);
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
+  const [expandAll, setExpandAll] = useState(false);
 
   useEffect(() => {
     if (coordinates) {
@@ -227,6 +229,40 @@ const PropertyResults = ({ data, coordinates, address }) => {
     }
   };
 
+  const handleExpandAll = () => {
+    setExpandAll((prevState) => !prevState);
+  };
+
+  const renderRegionalPlanLink = (data) => {
+    const regionalPlanData = data.find(item => item.layerName === "Regional Plan Boundary");
+
+    if (regionalPlanData && regionalPlanData.results && regionalPlanData.results.length > 0) {
+      const regionalPlanWebsiteHtml = regionalPlanData.results[0]["Regional Plan Website"] || '';
+      const decodedHtml = regionalPlanWebsiteHtml.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&amp;/g, '&');
+      const regionalPlanName = regionalPlanData.results[0]["title"] || '';
+
+      if (decodedHtml && regionalPlanName) {
+        console.log('Decoded HTML:', decodedHtml);
+        console.log('Regional Plan Name:', regionalPlanName);
+
+        return (
+          <>
+            <Typography variant="body1" gutterBottom>
+              Regional Plan Website:
+            </Typography>
+            {parse(decodedHtml)}
+          </>
+        );
+      } else {
+        console.log("Unable to find Regional Plan Website data");
+      }
+    } else {
+      console.log("Unable to find Regional Plan Boundary data");
+    }
+
+    return null;
+  };
+
   return (
     <Box>
       {/* Header section */}
@@ -271,6 +307,7 @@ const PropertyResults = ({ data, coordinates, address }) => {
               )}
             </>
           )}
+          {renderRegionalPlanLink(data)}
         </Box>
         <Button variant="contained" color="primary" onClick={generatePDF} disabled={isGeneratingPDF}>
           {isGeneratingPDF ? 'Generating PDF...' : 'Save PDF'}
@@ -284,12 +321,19 @@ const PropertyResults = ({ data, coordinates, address }) => {
       {/* Summary Grid */}
       <SummaryGrid data={data} />
 
+      {/* Expand/Collapse All Button */}
+      <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 2 }}>
+        <Button variant="contained" onClick={handleExpandAll}>
+          {expandAll ? 'Collapse All' : 'Expand All'}
+        </Button>
+      </Box>
+
       {/* Collapsible Sections */}
       {data && data.length > 0 && (
         <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
           {data.map((item) => (
             <Box key={item.layerName} sx={{ width: '100%', p: 1 }}>
-              <CollapsibleSection layer={item} />
+              <CollapsibleSection layer={item} isExpanded={expandAll} />
             </Box>
           ))}
         </Box>

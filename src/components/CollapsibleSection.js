@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Button, Collapse } from '@mui/material';
 import HeaderCard from './HeaderCard';
 import ResultTable from './ResultTable';
 
-const CollapsibleSection = ({ layer }) => {
-  const [open, setOpen] = useState(false);
+const CollapsibleSection = ({ layer, isExpanded }) => {
+  const [open, setOpen] = useState(isExpanded);
+
+  useEffect(() => {
+    setOpen(isExpanded);
+  }, [isExpanded]);
 
   return (
     <Box sx={{ mb: 2 }}>
